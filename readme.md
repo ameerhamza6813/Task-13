@@ -46,13 +46,6 @@ habit-tracker-flask/
 ├── .env
 └── README.md
 
-
-##  Screenshots
-
-| Habit Dashboard | Weekly Email Report |
-|------------------|---------------------|
-| ![dashboard](static/screenshots/dashboard.png) | ![email](static/screenshots/email_report.png) |
-
 ---
 
 ## 📦 Setup Instructions
