@@ -53,5 +53,5 @@ habit-tracker-flask/
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/habit-tracker-flask.git
+git clone https://github.com/ameerhamza6813/task-13.git
 cd habit-tracker-flask
