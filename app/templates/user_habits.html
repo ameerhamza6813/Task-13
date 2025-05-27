@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ user.name }}'s Habits</title>
+</head>
+<body>
+    <h1>Habits of {{ user.name }}</h1>
+
+    {% if habits %}
+        <ul>
+            {% for habit in habits %}
+                <li>
+                    <strong>{{ habit.name }}</strong><br />
+                    Created at: {{ habit.created_at.strftime('%Y-%m-%d') }}<br />
+                    Completed days:
+                    {% if habit.completed_days %}
+                        <ul>
+                            {% for day in habit.completed_days %}
+                                <li>{{ day }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        None
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No habits found for this user.</p>
+    {% endif %}
+</body>
+</html>

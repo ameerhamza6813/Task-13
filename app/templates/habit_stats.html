@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Habit Stats</title>
+</head>
+<body>
+    <h1>Habit: {{ habit.name }}</h1>
+    <p>Created At: {{ habit.created_at.strftime('%Y-%m-%d') }}</p>
+    <p>Total Check-ins: {{ total_checkins }}</p>
+
+    <h3>Completed Days</h3>
+    {% if habit.completed_days %}
+        <ul>
+            {% for day in habit.completed_days %}
+                <li>{{ day }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No check-ins yet.</p>
+    {% endif %}
+
+    <a href="/user/{{ habit.user_id }}/habits">Back to All Habits</a>
+</body>
+</html>

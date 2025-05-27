@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>{{ user.name }}'s Habits</h3>
+
+<form method="post" class="mb-4">
+  <h5>Add Habit</h5>
+  <input name="title" class="form-control mb-2" placeholder="Title" required>
+  <input name="description" class="form-control mb-2" placeholder="Description">
+  <select name="frequency" class="form-select mb-2">
+    <option value="daily">Daily</option>
+    <option value="weekly">Weekly</option>
+  </select>
+  <button class="btn btn-primary">Create</button>
+</form>
+
+<ul class="list-group">
+  {% for habit in habits %}
+  <li class="list-group-item">
+    <strong>{{ habit.title }}</strong> - {{ habit.frequency }}
+    <form action="{{ url_for('main.checkin_web', habit_id=habit.id) }}" method="post" style="display:inline;">
+      <button class="btn btn-sm btn-success float-end ms-2">Check-In</button>
+    </form>
+    <a href="{{ url_for('main.habit_stats_web', habit_id=habit.id) }}" class="btn btn-sm btn-info float-end">Stats</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

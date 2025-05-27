@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="{{ url_for('main.register') }}" class="btn btn-primary mb-3">Register New User</a>
+<h3>Users</h3>
+<ul class="list-group">
+  {% for user in users %}
+  <li class="list-group-item d-flex justify-content-between">
+    {{ user.name }} ({{ user.email }})
+    <a href="{{ url_for('main.habits', user_id=user.id) }}" class="btn btn-sm btn-secondary">Manage Habits</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
